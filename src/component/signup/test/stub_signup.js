@@ -1,12 +1,12 @@
 class StubSignup {
   async checkId(id) {
-    if (id === "test") {
-      return await true;
+    if (id === "test123") {
+      return true;
     }
-    return await false;
+    return false;
   }
-  async checkNickname(id) {
-    if (id === "test") {
+  async checkNickname(nickname) {
+    if (nickname === "test123") {
       return true;
     }
     return false;

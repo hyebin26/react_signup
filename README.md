@@ -4,6 +4,12 @@
 4. story book
 5. gitflow
 
+적용해야 될 것
+
+1. useCallback, memo
+2. story book
+3. context api
+
 ## Commit Convention
 
 ### 메시지구조

@@ -18,6 +18,8 @@ const SignupNotice = ({ handleNoticeInput, notice }) => {
           state={item.state}
           name={item.name}
           label={item.label}
+          need={item.need}
+          needCheck={item.needCheck}
         />
       ))}
     </SignupNoticeWrapper>

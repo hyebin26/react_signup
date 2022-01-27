@@ -48,23 +48,35 @@ export default class SignupPresenter {
     }
     target.nextSibling.textContent = "";
   }
-  async onHandleCheckId(target) {
+  async onHandleCheckId(btn) {
+    const target = document.getElementById("아이디");
     const falseText = target.nextSibling;
     if (falseText.textContent.length <= 2) {
       const checkId = await this.signupFetch.checkId(target.value);
       if (checkId) {
         falseText.textContent = "이미 사용중인 아이디입니다.";
+        btn.textContent = "아이디 중복확인";
       }
       if (!checkId) {
-        falseText.textContent = "";
+        target.style = "background:rgb(206 206 206);";
+        btn.textContent = "아이디 중복 확인 완료";
       }
     }
   }
-  onClickSignupBtn() {
-    const id = document.getElementById("아이디");
-    const nickname = document.getElementById("닉네임");
-    const password = document.getElementById("비밀번호");
-    const rePassword = document.getElementById("비밀번호 확인");
 
+  onHandleNoticeInput(update, id) {
+    update((prevState) => {
+      prevState.map((item) => {
+        if (id === 1) {
+          return { ...item, state: !item.state };
+        }
+        if (item.id === id) {
+          return { ...item, state: !item.state };
+        }
+        if (item.id !== id) {
+          return item;
+        }
+      });
+    });
   }
 }

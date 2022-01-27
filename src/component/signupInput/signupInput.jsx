@@ -27,7 +27,7 @@ const SignupInputWrapper = styled.div`
   padding: 0.7rem 0;
 `;
 const SignupFalse = styled.p`
-  color: rgb(255, 119, 119);
+  color: rgb(255, 119, 119) !important;
   font-size: 0.8rem;
   padding: 0.5rem 0;
 `;
@@ -41,7 +41,7 @@ const SignupInput = ({ title, type, children, detail, onHandleBlur }) => {
       <Title>{title}</Title>
       <Detail>{detail}</Detail>
       <Input type={type} placeholder={title} id={title} onBlur={handleBlur} />
-      <SignupFalse></SignupFalse>
+      <SignupFalse className="falseText"></SignupFalse>
       {children}
     </SignupInputWrapper>
   );
