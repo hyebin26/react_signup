@@ -6,7 +6,7 @@ const Title = styled.h3`
   padding-bottom: 0.2rem;
 `;
 const Input = styled.input`
-  width: ${(props) => (props.name === "이메일" ? "50%" : "100%")};
+  width: 100%;
   padding: 0.4rem 0.3rem;
   border-radius: 4px;
   border: 1px solid #dbdbdb;
@@ -20,18 +20,28 @@ const Input = styled.input`
 const Detail = styled.p`
   font-size: 0.8rem;
   color: rgb(117, 117, 117);
+  padding-bottom: 0.5rem;
 `;
 
 const SignupInputWrapper = styled.div`
   padding: 0.7rem 0;
 `;
+const SignupFalse = styled.p`
+  color: rgb(255, 119, 119);
+  font-size: 0.8rem;
+  padding: 0.5rem 0;
+`;
 
-const SignupInput = ({ title, type, children, detail }) => {
+const SignupInput = ({ title, type, children, detail, onHandleBlur }) => {
+  const handleBlur = (e) => {
+    onHandleBlur(e.target);
+  };
   return (
     <SignupInputWrapper>
       <Title>{title}</Title>
       <Detail>{detail}</Detail>
-      <Input type={type} placeholder={title} name={title} />
+      <Input type={type} placeholder={title} id={title} onBlur={handleBlur} />
+      <SignupFalse></SignupFalse>
       {children}
     </SignupInputWrapper>
   );

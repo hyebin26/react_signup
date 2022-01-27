@@ -57,4 +57,3 @@ Feat: "추가 로그인 함수" => 타입, 제목
 Related to: #9
 
 5. git Emoji 참고
-
