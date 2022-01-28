@@ -50,8 +50,9 @@ export default class SignupPresenter {
   }
   async onHandleCheckId(btn) {
     const target = document.getElementById("아이디");
+    this.onHandleTextBlur(target);
     const falseText = target.nextSibling;
-    if (falseText.textContent.length <= 2) {
+    if (falseText.textContent.length < 2) {
       const checkId = await this.signupFetch.checkId(target.value);
       if (checkId) {
         falseText.textContent = "이미 사용중인 아이디입니다.";

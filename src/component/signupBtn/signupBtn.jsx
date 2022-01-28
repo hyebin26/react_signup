@@ -19,10 +19,14 @@ const Button = styled.button`
   transition: 0.2s border-color, 0.2s background-color, 0.2s color;
 `;
 
-const SignupBtn = ({ title, handleOnClick }) => {
+const SignupBtn = React.memo(({ title, handleOnClick }) => {
   const onClick = (e) => {
-    e.preventDefault();
-    handleOnClick(e.target);
+    if (title === "아이디 중복확인") {
+      e.preventDefault();
+    }
+    if (handleOnClick) {
+      handleOnClick(e.target);
+    }
   };
   return (
     <>
@@ -31,6 +35,6 @@ const SignupBtn = ({ title, handleOnClick }) => {
       </Button>
     </>
   );
-};
+});
 
 export default SignupBtn;

@@ -52,25 +52,24 @@ const SignupNeed = styled.span`
 `;
 
 const SignupCheckbox = ({
+  id,
+  state,
   name,
   label,
-  state,
-  handleNoticeInput,
-  id,
   need,
   needCheck,
+  handleNoticeInput,
 }) => {
   const handleClickCheckInput = (e) => {
     handleNoticeInput(id);
   };
-  console.log(needCheck);
   return (
     <SignupCheckBoxWrapper id={"div" + name}>
       <SignupCheckInput
         type="checkbox"
         id={name}
         onClick={handleClickCheckInput}
-        checked={state ? true : false}
+        defaultChecked={state ? true : false}
       />
       <SignupCheck
         htmlFor={name}

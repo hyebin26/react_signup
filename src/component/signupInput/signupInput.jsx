@@ -32,19 +32,21 @@ const SignupFalse = styled.p`
   padding: 0.5rem 0;
 `;
 
-const SignupInput = ({ title, type, children, detail, onHandleBlur }) => {
-  const handleBlur = (e) => {
-    onHandleBlur(e.target);
-  };
-  return (
-    <SignupInputWrapper>
-      <Title>{title}</Title>
-      <Detail>{detail}</Detail>
-      <Input type={type} placeholder={title} id={title} onBlur={handleBlur} />
-      <SignupFalse className="falseText"></SignupFalse>
-      {children}
-    </SignupInputWrapper>
-  );
-};
+const SignupInput = React.memo(
+  ({ title, type, children, detail, onHandleBlur }) => {
+    const handleBlur = (e) => {
+      onHandleBlur(e.target);
+    };
+    return (
+      <SignupInputWrapper>
+        <Title>{title}</Title>
+        <Detail>{detail}</Detail>
+        <Input type={type} placeholder={title} id={title} onBlur={handleBlur} />
+        <SignupFalse className="falseText"></SignupFalse>
+        {children}
+      </SignupInputWrapper>
+    );
+  }
+);
 
 export default SignupInput;

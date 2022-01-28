@@ -9,13 +9,13 @@ const SignupFormWrapper = styled.form``;
 const SignupForm = ({
   handleNoticeInput,
   notice,
-  onClickSignupBtn,
+  onSubmitSignup,
   handleTextBlur,
   handlePwdBlur,
   handleCheckId,
 }) => {
   return (
-    <SignupFormWrapper onSubmit={onClickSignupBtn}>
+    <SignupFormWrapper onSubmit={onSubmitSignup}>
       <SignupInput
         type="text"
         title="아이디"
@@ -42,7 +42,7 @@ const SignupForm = ({
         onHandleBlur={handleTextBlur}
       />
       <SignupNotice handleNoticeInput={handleNoticeInput} notice={notice} />
-      <SignupBtn title="회원가입하기" handleOnClick={onClickSignupBtn} />
+      <SignupBtn title="회원가입하기" />
     </SignupFormWrapper>
   );
 };

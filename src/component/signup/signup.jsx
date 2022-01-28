@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import SignupForm from "../signupForm/signupForm";
 import SignupTitle from "../signupTitle/signupTitle";
 import styled from "styled-components";
@@ -55,21 +55,28 @@ const noticeInputArray = [
 function Signup({ signupPresenter }) {
   const [notice, setNotice] = useState(noticeInputArray);
   const handleNoticeInput = (id) => {
-    setNotice((prevState) =>
-      prevState.map((item) => {
-        if (id === 1) {
-          return { ...item, state: !item.state };
-        }
-        if (item.id === id) {
-          return { ...item, state: !item.state, needCheck: false };
-        }
-        if (item.id !== id) {
-          return item;
-        }
-      })
-    );
+    if (id === 1) {
+      setNotice((prev) =>
+        prev.map((item2) => {
+          return { ...item2, state: !item2.state, needCheck: false };
+        })
+      );
+    }
+    if (id !== 1) {
+      setNotice((prevState) =>
+        prevState.map((item) => {
+          if (item.id === id) {
+            return { ...item, state: !item.state, needCheck: false };
+          }
+          if (item.id !== id) {
+            return item;
+          }
+        })
+      );
+    }
   };
-  const onClickSignupBtn = async () => {
+  const onSubmitSignup = async (e) => {
+    e.preventDefault();
     const id = document.getElementById("아이디");
     const nickname = document.getElementById("닉네임");
     const password = document.getElementById("비밀번호");
@@ -81,10 +88,8 @@ function Signup({ signupPresenter }) {
     signupPresenter.onHandlePwdBlur(rePassword);
     let allFalseText = document.querySelectorAll(".falseText");
     let allCheckBox = document.querySelectorAll(".falseInput");
-
     allFalseText = [...allFalseText];
     allCheckBox = [...allCheckBox];
-
     allFalseText = allFalseText.filter((item) => item.textContent.length > 2);
     allCheckBox.map((item) => {
       if (item.children[0].textContent === "") {
@@ -105,22 +110,31 @@ function Signup({ signupPresenter }) {
       alert("회원가입 대성공!");
     }
   };
-  const handleTextBlur = (target) => {
-    signupPresenter.onHandleTextBlur(target);
-  };
-  const handlePwdBlur = (target) => {
-    signupPresenter.onHandlePwdBlur(target);
-  };
-  const handleCheckId = (target) => {
-    signupPresenter.onHandleCheckId(target);
-  };
+  const handleTextBlur = useCallback(
+    (target) => {
+      signupPresenter.onHandleTextBlur(target);
+    },
+    [signupPresenter.onHandleTextBlur]
+  );
+  const handlePwdBlur = useCallback(
+    (target) => {
+      signupPresenter.onHandlePwdBlur(target);
+    },
+    [signupPresenter.onHandlePwdBlur]
+  );
+  const handleCheckId = useCallback(
+    (target) => {
+      signupPresenter.onHandleCheckId(target);
+    },
+    [signupPresenter.onHandleCheckId]
+  );
   return (
     <Section>
       <SignupTitle />
       <SignupForm
         handleNoticeInput={handleNoticeInput}
         notice={notice}
-        onClickSignupBtn={onClickSignupBtn}
+        onSubmitSignup={onSubmitSignup}
         handleTextBlur={handleTextBlur}
         handlePwdBlur={handlePwdBlur}
         handleCheckId={handleCheckId}

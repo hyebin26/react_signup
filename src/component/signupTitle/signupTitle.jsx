@@ -12,13 +12,13 @@ const Title = styled.h3`
 `;
 const Wrapper = styled.div``;
 
-const SignupTitle = (props) => {
+const SignupTitle = React.memo(() => {
   return (
     <Wrapper>
       <Logo>오늘의집</Logo>
       <Title>회원가입</Title>
     </Wrapper>
   );
-};
+});
 
 export default SignupTitle;
