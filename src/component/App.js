@@ -1,10 +1,10 @@
 import "./App.css";
 import Signup from "./signup/signup";
 
-function App() {
+function App({ signupPresenter }) {
   return (
     <>
-      <Signup />
+      <Signup signupPresenter={signupPresenter} />
     </>
   );
 }

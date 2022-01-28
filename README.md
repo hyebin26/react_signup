@@ -1,8 +1,12 @@
-1. Test코드
-2. context API
-3. react Children
-4. story book
-5. gitflow
+
+
+
+
+적용해야 될 것
+
+1. useCallback, memo
+2. story book O
+3. Refactoring O
 
 ## Commit Convention
 
