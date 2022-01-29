@@ -1,12 +1,8 @@
+### 해야될 것
 
-
-
-
-적용해야 될 것
-
-1. useCallback, memo
-2. story book O
-3. Refactoring O
+- redux toolkit
+- websocket
+- 카카오 map => 검색, 위치표시
 
 ## Commit Convention
 

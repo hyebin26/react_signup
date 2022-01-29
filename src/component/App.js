@@ -1,10 +1,12 @@
 import "./App.css";
+import KakaoMap from "./kakaoMap/kakaoMap";
 import Signup from "./signup/signup";
 
 function App({ signupPresenter }) {
   return (
     <>
-      <Signup signupPresenter={signupPresenter} />
+      {/* <Signup signupPresenter={signupPresenter} /> */}
+      <KakaoMap></KakaoMap>
     </>
   );
 }
