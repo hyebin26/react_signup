@@ -1,8 +1,6 @@
 ### 해야될 것
 
 - redux toolkit
-- websocket
-- 카카오 map => 검색, 위치표시
 
 ## Commit Convention
 

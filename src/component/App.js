@@ -1,3 +1,4 @@
+import Counter from "../feature/counter/counter";
 import "./App.css";
 import Chat from "./chat/chat";
 import KakaoMap from "./kakaoMap/kakaoMap";
@@ -7,7 +8,8 @@ function App({ signupPresenter }) {
   return (
     <>
       {/* <Signup signupPresenter={signupPresenter} /> */}
-      <Chat></Chat>
+      {/* <Chat></Chat> */}
+      <Counter></Counter>
       {/* <KakaoMap></KakaoMap> */}
     </>
   );

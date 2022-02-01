@@ -4,7 +4,6 @@ import ChatList from "../chatList/chatList";
 import io from "socket.io-client";
 
 const ChatWrapper = styled.div``;
-const TextField = styled.textarea``;
 const ChatUl = styled.ul`
   width: 500px;
   height: 500px;
@@ -12,7 +11,7 @@ const ChatUl = styled.ul`
 `;
 
 const socket = io.connect("http://localhost:3001");
-const Chat = (props) => {
+const Chat = () => {
   const [chat, setChat] = useState([]);
   const textRef = useRef(null);
 
@@ -38,8 +37,6 @@ const Chat = (props) => {
   };
 
   const handleTextareaKey = (e) => {
-    // 공백만 있을 경우 X
-    //  alt + enter일 경우 줄 바꿈
     if (e.which === 13 && e.ctrlKey) {
       textRef.current.value = textRef.current.value + "\n";
     }
@@ -49,8 +46,6 @@ const Chat = (props) => {
     }
   };
   useEffect(() => {
-    // 엔터를 누를 때 마다 서버로 요청을 보내고
-    // 서버에서 응답을 받아온다.
     socket.on("message", ({ name, message, time }) => {
       setChat((chat) => [...chat, { name, message, time }]);
     });
