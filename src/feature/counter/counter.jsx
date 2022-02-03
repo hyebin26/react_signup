@@ -1,9 +1,9 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { increment, decrement, incrementAsync } from "./counterSlice";
 
 const Counter = (props) => {
-  const count = useSelector((state) => state.value);
+  const count = useSelector((state) => state.count.value);
   const dispatch = useDispatch();
   const inputRef = useRef(null);
 

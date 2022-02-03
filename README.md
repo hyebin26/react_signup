@@ -1,7 +1,3 @@
-### 해야될 것
-
-- redux toolkit
-
 ## Commit Convention
 
 ### 메시지구조
