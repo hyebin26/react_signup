@@ -3,6 +3,10 @@ import styled from "styled-components";
 import { AiFillBell, AiOutlinePlus } from "react-icons/ai";
 import { BsMessenger } from "react-icons/bs";
 import { RiArrowDownSFill } from "react-icons/ri";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { onClickMessage } from "../../modules/faceSlice";
+import MessageBox from "../messageBox/messageBox";
 
 const NavOptionWrapper = styled.div`
   flex: 0 1 35%;
@@ -20,6 +24,7 @@ const NavOptionIconWrapper = styled.div`
   width: 41px;
   height: 41px;
   cursor: pointer;
+  position: relative;
   svg {
     width: 20px;
     height: 20px;
@@ -27,13 +32,20 @@ const NavOptionIconWrapper = styled.div`
 `;
 
 const NavOption = (props) => {
+  const { isShowMessage } = useSelector((state) => state.message);
+  const dispatch = useDispatch();
+  const clickMessage = () => {
+    dispatch(onClickMessage());
+  };
+
   return (
     <NavOptionWrapper>
       <NavOptionIconWrapper>
         <AiOutlinePlus />
       </NavOptionIconWrapper>
-      <NavOptionIconWrapper>
+      <NavOptionIconWrapper onClick={clickMessage}>
         <BsMessenger />
+        {isShowMessage ? <MessageBox /> : ""}
       </NavOptionIconWrapper>
       <NavOptionIconWrapper>
         <AiFillBell />

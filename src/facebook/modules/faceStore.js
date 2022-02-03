@@ -1,5 +1,6 @@
-// import { configureStore } from "@reduxjs/toolkit";
+import { configureStore } from "@reduxjs/toolkit";
+import faceReducer from "./faceSlice";
 
-// export default configureStore({
-//   reduer: {},
-// });
+export const faceStore = configureStore({
+  reducer: { message: faceReducer },
+});
