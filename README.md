@@ -1,8 +1,7 @@
-1. Test코드
-2. context API
-3. react Children
-4. story book
-5. gitflow
+### 내일 할 것
+
+1. messenger 쉐도우박스
+2. 서버에서 채팅 리스트 만들고 채팅해보기
 
 ## Commit Convention
 

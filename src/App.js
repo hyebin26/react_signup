@@ -1,24 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import Nav from "./facebook/presenter/nav/nav";
+// import Counter from "./feature/counter/counter";
+// import Post from "./feature/post/post";
+// import Chat from "./component/chat/chat";
+// import KakaoMap from "./component/kakaoMap/kakaoMap";
+// import Signup from "./component/signup/signup";
+import "./App.css";
+import Main from "./facebook/presenter/main/main";
+import SkeletonProduct from "./skeleton/skeletonProduct/skeletonProduct";
+import Container from "./skeleton/container/container";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Container />
+    </>
   );
 }
 
