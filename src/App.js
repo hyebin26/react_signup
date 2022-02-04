@@ -6,12 +6,13 @@ import Nav from "./facebook/presenter/nav/nav";
 // import Signup from "./component/signup/signup";
 import "./App.css";
 import Main from "./facebook/presenter/main/main";
+import SkeletonProduct from "./skeleton/skeletonProduct/skeletonProduct";
+import Container from "./skeleton/container/container";
 
 function App() {
   return (
     <>
-      <Nav></Nav>
-      <Main />
+      <Container />
     </>
   );
 }

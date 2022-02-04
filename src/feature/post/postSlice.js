@@ -6,7 +6,7 @@ import {
 
 export const fetchPost = createAsyncThunk(
   "post/fetchPostStatus",
-  async (userId, thunkAPI) => {
+  async () => {
     try {
       const fetchPostData = await fetch("http://localhost:3001/data");
       const data = await fetchPostData.json();

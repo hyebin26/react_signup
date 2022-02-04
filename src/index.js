@@ -8,10 +8,8 @@ import { faceStore } from "./facebook/modules/faceStore";
 // const signupPresenter = new SignupPresenter(new StubSignup());
 
 ReactDOM.render(
-  <Provider store={faceStore}>
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>
-  </Provider>,
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
   document.getElementById("root")
 );
