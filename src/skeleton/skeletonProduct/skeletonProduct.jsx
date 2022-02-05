@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-import styled, { keyframes } from "styled-components";
+import styled, { keyframes, ThemeProvider } from "styled-components";
 import { Data } from "../api/api";
+import { button } from "../../styles/styles";
 // scroll을 맨 위로 보내기 => skeleton 보여주기
 // theme적용할 수 있나 체크
 
@@ -9,13 +10,15 @@ const data = new Data();
 const SkeletonProduct = (props) => {
   return (
     <SkeletonWrapper>
-      <SkeletonImage></SkeletonImage>
-      <SkeletonTextWrapper>
-        <SkeletonTextName></SkeletonTextName>
-        <SkeletonTextInfo></SkeletonTextInfo>
-        <SkeletonTextCategory></SkeletonTextCategory>
-        <SkeletonTextLocation></SkeletonTextLocation>
-      </SkeletonTextWrapper>
+      <ThemeProvider theme={button}>
+        <SkeletonImage></SkeletonImage>
+        <SkeletonTextWrapper>
+          <SkeletonTextName></SkeletonTextName>
+          <SkeletonTextInfo></SkeletonTextInfo>
+          <SkeletonTextCategory></SkeletonTextCategory>
+          <SkeletonTextLocation></SkeletonTextLocation>
+        </SkeletonTextWrapper>
+      </ThemeProvider>
     </SkeletonWrapper>
   );
 };
@@ -29,6 +32,11 @@ const skeletonKeyframes = keyframes`
   }
 `;
 
+const SkeletonBackground = styled.div`
+  animation: ${skeletonKeyframes} 3000ms ease-in-out infinite;
+  background-image: linear-gradient(90deg, #eee, #f5f5f5, #eee);
+`;
+
 const SkeletonWrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -38,44 +46,30 @@ const SkeletonWrapper = styled.div`
   height: 240px;
   margin: 1rem 0;
 `;
-const SkeletonImage = styled.div`
+const SkeletonImage = styled(SkeletonBackground)`
   width: 200px;
   height: 120px;
-  animation: ${skeletonKeyframes} 3000ms ease-in-out infinite;
-  background-color: #eee;
-  background-image: linear-gradient(90deg, #eee, #f5f5f5, #eee);
   margin-bottom: 0.4rem;
 `;
 const SkeletonTextWrapper = styled.div``;
-const SkeletonTextName = styled.div`
+const SkeletonTextName = styled(SkeletonBackground)`
   width: 50%;
-  animation: ${skeletonKeyframes} 3000ms ease-in-out infinite;
-  background-color: #eee;
-  background-image: linear-gradient(90deg, #eee, #f5f5f5, #eee);
   margin-bottom: 0.3rem;
   height: 16px;
 `;
-const SkeletonTextInfo = styled.div`
+const SkeletonTextInfo = styled(SkeletonBackground)`
   width: 80%;
-  animation: ${skeletonKeyframes} 3000ms ease-in-out infinite;
-  background-color: #eee;
-  background-image: linear-gradient(90deg, #eee, #f5f5f5, #eee);
+
   height: 20px;
   margin-bottom: 0.3rem;
 `;
-const SkeletonTextCategory = styled.div`
+const SkeletonTextCategory = styled(SkeletonBackground)`
   width: 50%;
-  animation: ${skeletonKeyframes} 3000ms ease-in-out infinite;
-  background-color: #eee;
-  background-image: linear-gradient(90deg, #eee, #f5f5f5, #eee);
   height: 16px;
   margin-bottom: 0.3rem;
 `;
-const SkeletonTextLocation = styled.div`
+const SkeletonTextLocation = styled(SkeletonBackground)`
   width: 30%;
-  animation: ${skeletonKeyframes} 3000ms ease-in-out infinite;
-  background-color: #eee;
-  background-image: linear-gradient(90deg, #eee, #f5f5f5, #eee);
   height: 16px;
 `;
 
